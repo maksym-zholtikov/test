@@ -1,7 +1,7 @@
 <div class="main">
 
       <h2>Search for GitHub repositories:</h2>
-      <autocomplete ng-model="result" data="repositories" on-type="searchText" on-select="selectRepository"></autocomplete>
+      <autogit ng-model="result" data="repositories" on-type="searchText" on-select="selectRepository"></autogit>
 
 
       <div ng-click='redirect(repository.html_url)' ng-show="repository"> 

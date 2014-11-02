@@ -22,19 +22,18 @@ angular.module('testApp')
             if(typeof string != 'object'){
                 GitHubService.getList(string).then(function (res) {
                 	$scope.results = res.items;
-                	results = _.map(res.items, function(item) {
+                	for(var i = 0; i < res.items.length; i++) {
                 		var newItem = {};
-                		newItem.id = item.id;
-                		newItem.name = item.name;
-                		return newItem;
-                	});
+                		newItem.id = res.items[i].id;
+                		newItem.name = res.items[i].name;
+                		results.push(newItem);
+                	}
                     $scope.repositories = results;
                 });    
             }
         }
        
         function redirect(link) {
-        	console.info(link);
         	$window.location.href = link;
         }
 
